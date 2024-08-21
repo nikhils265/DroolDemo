@@ -1,0 +1,28 @@
+import com.amazon.drool.dto.CardInput;
+global com.amazon.drool.dto.CardOutput cardOutput;
+
+dialect "mvel"
+
+rule "HDFC Discount"
+ when
+  $ci : CardInput(card == "HDFC")
+ then
+  System.out.println("HDFC Discount rule run");
+  cardOutput.setDiscountApplied("HDFC Discount rule run");
+end
+
+rule "SBI Discount"
+ when
+  $ci : CardInput(card == "SBI")
+ then
+  System.out.println("SBI Discount rule run");
+  cardOutput.setDiscountApplied("SBI Discount rule run");
+end
+
+rule "ICICI Discount"
+ when
+  $ci : CardInput(card == "ICICI")
+ then
+  System.out.println("ICICI Discount rule run");
+  cardOutput.setDiscountApplied("ICICI Discount rule run");
+end
